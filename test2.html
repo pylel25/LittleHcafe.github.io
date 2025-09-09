@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little H cafe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: pink;
+      color: #333;
+    }
+
+    header {
+      background-color: hotpink;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    nav button:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The Little H cafe</h1>
+    <nav>
+      <button data-target="day">Day Menu</button>
+      <button data-target="night">Night Menu</button>
+      <button data-target="specials">Specials On Offer</button>
+      <button id="homeBtn">View Homepage</button>
+      <button id="featuresBtn">View Features & Hours</button>
+    </nav>
+  </header>
+
+  <section id="day">
+    <h2>Day Menu</h2>
+    <img src="https://pylel25.github.io/LittleHcafe.github.io/DayMenu.jpg" alt="Menu" width="540" height="720">
+  </section>
+
+  <section id="night">
+    <h2>Night Menu</h2>
+    <img src="https://pylel25.github.io/LittleHcafe.github.io/NightMenu.jpg" alt="Menu" width="540" height="720">
+  </section>
+
+  <section id="specials">
+    <h2>Specials On Offer</h2>
+    <p>Make sure to be there early on Sunday morning to get some delicious, homemade donuts. New flavours each week which may include lemon meringue, caramel, toblerone and much more. As well as the classic nutella and glazed donut. Little H celebrates some specials days including a mother's day breakfast stall, with amazing goodies for you to choose from.</p>
+  </section>
+
+  <script>
+    // Smooth scroll for internal navigation
+    document.querySelectorAll("nav button[data-target]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-target");
+        const section = document.getElementById(targetId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+
+    // External navigation
+    document.getElementById("homeBtn").addEventListener("click", () => {
+      window.location.href = "https://pylel25.github.io/LittleHcafe.github.io/Page1.html";
+    });
+
+    document.getElementById("featuresBtn").addEventListener("click", () => {
+      window.location.href = "https://pylel25.github.io/LittleHcafe.github.io/Page3.html";
+    });
+  </script>
+</body>
+</html>
