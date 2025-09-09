@@ -1,86 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little H cafe</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: pink;
-            color: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little H cafe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: pink;
+      color: #333;
+    }
 
+    header {
+      background-color: hotpink;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
 
-        header {
-            background-color: hotpink;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
+    nav button:hover {
+      text-decoration: underline;
+    }
 
-        section {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-    </style>
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>The Little H cafe</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#contact details">Contact Details</a>
-            <a href="#located">Located</a>
-            <a href="#view menu">View Menu</a>
-            <a href="#view features and opening hours">View Features and Opening Hours</a>
-        </nav>
-    </header>
+  <header>
+    <h1>The Little H cafe</h1>
+    <nav>
+      <button data-target="about">About</button>
+      <button data-target="contact">Contact Details</button>
+      <button data-target="located">Located</button>
+      <button id="menuBtn">View Menu</button>
+      <button id="featuresBtn">View Features & Hours</button>
+    </nav>
+  </header>
 
-    <section id="about">
-        <h2>About</h2>
-        <p>It is a small cafe known for their quality food, coffee and service. Little H aims to use locally sourced ingredients whenever possible. Baked goods are made fresh daily and there are always new specials.</p>
-    </section>
+  <section id="about">
+    <h2>About</h2>
+    <p>It is a small cafe known for their quality food, coffee and service. Little H aims to use locally sourced ingredients whenever possible. Baked goods are made fresh daily and there are always new specials.</p>
+  </section>
 
-    <section id="contact details">
-        <h2>Contact Details</h2>
-        <ul>
-            <li>Phone Number - 0753719890</li>
-            <li>Facebook - Little h Cafe</li>
-            <li>Instagram - littlehcafe___</li>
-        </ul>
-    </section>
+  <section id="contact">
+    <h2>Contact Details</h2>
+    <ul>
+      <li>Phone Number - 0753719890</li>
+      <li>Facebook - Little h Cafe</li>
+      <li>Instagram - littlehcafe___</li>
+    </ul>
+  </section>
 
-    <section id="located">
-        <h2>Located</h2>
-        <p>Which is located on the Southside of Gympie at 35 Exhibition Road, Southside 4570 Qld</p>
-    </section>
+  <section id="located">
+    <h2>Located</h2>
+    <p>Which is located on the Southside of Gympie at 35 Exhibition Road, Southside 4570 Qld</p>
+  </section>
 
-    <section id="view menu">
-        <h2>View Menu</h2>
-        <p><a href="https://pylel25.github.io/LittleHcafe.github.io/Page2.html">View the menu!</a></p>
-    </section>
+  <script>
+    // Smooth scroll to sections
+    document.querySelectorAll("nav button[data-target]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-target");
+        const section = document.getElementById(targetId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
 
-        <section id="view features and opening hours">
-        <h2>View Features and Opening Hours</h2>
-        <p><a href="https://pylel25.github.io/LittleHcafe.github.io/Page3.html">View features and opening hours!</a></p>
-    </section>
-    
+    // External navigation
+    document.getElementById("menuBtn").addEventListener("click", () => {
+      window.location.href = "https://pylel25.github.io/LittleHcafe.github.io/Page2.html";
+    });
+
+    document.getElementById("featuresBtn").addEventListener("click", () => {
+      window.location.href = "https://pylel25.github.io/LittleHcafe.github.io/Page3.html";
+    });
+  </script>
 </body>
 </html>
