@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Little H cafe</title>
   <style>
     body {
@@ -20,17 +20,16 @@
       text-align: center;
     }
 
-    nav button {
-      background: none;
-      border: none;
+    nav a {
       color: white;
       margin: 0 15px;
       font-weight: bold;
-      cursor: pointer;
       font-size: 1em;
+      text-decoration: none;
+      cursor: pointer;
     }
 
-    nav button:hover {
+    nav a:hover {
       text-decoration: underline;
     }
 
@@ -50,11 +49,11 @@
   <header>
     <h1>The Little H cafe</h1>
     <nav>
-      <button data-target="about">About</button>
-      <button data-target="contact">Contact Details</button>
-      <button data-target="located">Located</button>
-      <button id="menuBtn">View Menu</button>
-      <button id="featuresBtn">View Features & Hours</button>
+      <a href="#about">About</a>
+      <a href="#contact">Contact Details</a>
+      <a href="#located">Located</a>
+      <a href="https://pylel25.github.io/LittleHcafe.github.io/Page2.html">View Menu</a>
+      <a href="https://pylel25.github.io/LittleHcafe.github.io/Page3.html">View Features & Hours</a>
     </nav>
   </header>
 
@@ -77,26 +76,5 @@
     <p>Which is located on the Southside of Gympie at 35 Exhibition Road, Southside 4570 Qld</p>
   </section>
 
-  <script>
-    // Smooth scroll to sections
-    document.querySelectorAll("nav button[data-target]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const targetId = btn.getAttribute("data-target");
-        const section = document.getElementById(targetId);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
-      });
-    });
-
-    // External navigation
-    document.getElementById("menuBtn").addEventListener("click", () => {
-      window.location.href = "https://pylel25.github.io/LittleHcafe.github.io/Page2.html";
-    });
-
-    document.getElementById("featuresBtn").addEventListener("click", () => {
-      window.location.href = "https://pylel25.github.io/LittleHcafe.github.io/Page3.html";
-    });
-  </script>
 </body>
 </html>
