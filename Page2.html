@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Little H cafe</title>
+  <title>Little H Cafe</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -36,7 +36,7 @@
 
     section {
       padding: 40px 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
       background: white;
       margin-bottom: 20px;
@@ -44,51 +44,97 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    .menu-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
+    /* ---------- ORDER ONLINE SECTION ---------- */
+    .menu-category {
+      margin-bottom: 30px;
     }
 
-    .menu-item input[type="number"] {
-      width: 50px;
-      text-align: center;
-    }
-
-    #orderSummary {
-      margin-top: 20px;
-      background: #ffe6f0;
-      padding: 15px;
+    .menu-category h3 {
+      background: hotpink;
+      color: white;
+      padding: 10px;
       border-radius: 8px;
     }
 
-    #placeOrder {
-      margin-top: 20px;
-      background-color: hotpink;
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .menu-item {
+      background: #ffe4f0;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .menu-item h4 {
+      margin: 8px 0;
+    }
+
+    .menu-item button {
+      background: hotpink;
       color: white;
       border: none;
-      padding: 10px 20px;
-      font-size: 1em;
-      border-radius: 5px;
+      border-radius: 6px;
+      padding: 8px 12px;
       cursor: pointer;
     }
 
-    #placeOrder:hover {
-      background-color: deeppink;
+    .menu-item button:hover {
+      background: deeppink;
     }
 
-    #confirmation {
-      margin-top: 15px;
+    .cart {
+      margin-top: 40px;
+      background: #fff0f7;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    .cart table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .cart th, .cart td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    .cart th {
+      border-bottom: 2px solid #ccc;
+    }
+
+    .cart tfoot td {
       font-weight: bold;
-      color: green;
+    }
+
+    .submit-btn {
+      margin-top: 16px;
+      width: 100%;
+      background: hotpink;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: deeppink;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>The Little H cafe</h1>
+    <h1>The Little H Cafe</h1>
     <nav>
       <button data-target="day">Day Menu</button>
       <button data-target="night">Night Menu</button>
@@ -114,39 +160,68 @@
     <p>Make sure to be there early on Sunday morning to get some delicious, homemade donuts. New flavours each week which may include lemon meringue, caramel, toblerone and much more. As well as the classic nutella and glazed donut. Little H celebrates some specials days including a mother's day breakfast stall, with amazing goodies for you to choose from.</p>
   </section>
 
-  <!-- New Order Online Section -->
+  <!-- 🛒 ORDER ONLINE SECTION -->
   <section id="order">
     <h2>Order Online</h2>
-    <p>Select your items below and place your order.</p>
+    <p>Select your favorite items from our menus below and place your order:</p>
 
-    <div class="menu-item">
-      <label><input type="checkbox" value="Coffee" data-price="4"> Coffee - $4</label>
-      <input type="number" min="1" value="1" disabled>
+    <div class="menu-category">
+      <h3>☀️ All Day Menu</h3>
+      <div class="menu-grid">
+        <div class="menu-item" data-name="Sambal Chilli Scramble" data-price="26"><h4>Sambal Chilli Scramble</h4><p>$26</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Ricotta Gnocchi" data-price="24"><h4>Ricotta Gnocchi</h4><p>$24</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Fried Chicken Benedict" data-price="25"><h4>Fried Chicken Benedict</h4><p>$25</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Brekky Roll" data-price="25"><h4>Brekky Roll</h4><p>$25</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Mushroom Toast" data-price="19"><h4>Mushroom Toast</h4><p>$19</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Bombe Alaska Croffle" data-price="23"><h4>Bombe Alaska Croffle</h4><p>$23</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Hash Brown" data-price="23"><h4>Hash Brown</h4><p>$23</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Karaage Chicken Bowl" data-price="25"><h4>Karaage Chicken Bowl</h4><p>$25</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Toast" data-price="7"><h4>Toast</h4><p>from $7</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Eggs Your Way" data-price="14"><h4>Eggs Your Way</h4><p>$14</p><button>Add to Cart</button></div>
+      </div>
     </div>
 
-    <div class="menu-item">
-      <label><input type="checkbox" value="Donut" data-price="3"> Donut - $3</label>
-      <input type="number" min="1" value="1" disabled>
+    <div class="menu-category">
+      <h3>🌙 Burger Night Menu</h3>
+      <div class="menu-grid">
+        <div class="menu-item" data-name="Chef’s Choice" data-price="19"><h4>Chef’s Choice</h4><p>$19</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Philly Cheese Steak" data-price="19"><h4>Philly Cheese Steak</h4><p>$19</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Brisket" data-price="18"><h4>Brisket</h4><p>$18</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Korean Fried Chicken" data-price="19"><h4>Korean Fried Chicken</h4><p>$19</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Thai BBQ Pork Belly" data-price="19"><h4>Thai BBQ Pork Belly</h4><p>$19</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Aussie Burger" data-price="20"><h4>Aussie Burger</h4><p>$20</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Cheeseburger" data-price="17"><h4>Cheeseburger</h4><p>$17</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Beef and Bacon" data-price="18"><h4>Beef and Bacon</h4><p>$18</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Original Chicken" data-price="17"><h4>Original Chicken</h4><p>$17</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="BBQ Chicken" data-price="18"><h4>BBQ Chicken</h4><p>$18</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Haloumi Burger" data-price="17"><h4>Haloumi Burger</h4><p>$17</p><button>Add to Cart</button></div>
+        <div class="menu-item" data-name="Fried Mushroom" data-price="17"><h4>Fried Mushroom</h4><p>$17</p><button>Add to Cart</button></div>
+      </div>
     </div>
 
-    <div class="menu-item">
-      <label><input type="checkbox" value="Sandwich" data-price="8"> Sandwich - $8</label>
-      <input type="number" min="1" value="1" disabled>
+    <div class="cart">
+      <h3>Your Order</h3>
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Total:</td>
+            <td id="total">$0.00</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      <button class="submit-btn" onclick="submitOrder()">Place Order</button>
     </div>
-
-    <div class="menu-item">
-      <label><input type="checkbox" value="Juice" data-price="5"> Juice - $5</label>
-      <input type="number" min="1" value="1" disabled>
-    </div>
-
-    <div id="orderSummary">
-      <h3>Your Order:</h3>
-      <ul id="summaryList"></ul>
-      <p><strong>Total: $<span id="totalPrice">0</span></strong></p>
-    </div>
-
-    <button id="placeOrder">Place Order</button>
-    <p id="confirmation"></p>
   </section>
 
   <script>
@@ -170,50 +245,69 @@
       window.location.href = "https://pylel25.github.io/LittleHcafe.github.io/Page3.html";
     });
 
-    // Interactive order logic
-    const checkboxes = document.querySelectorAll('#order input[type="checkbox"]');
-    const totalPriceEl = document.getElementById('totalPrice');
-    const summaryList = document.getElementById('summaryList');
-    const confirmation = document.getElementById('confirmation');
+    // 🛍️ Interactive Order System
+    const cart = {};
+    const cartTable = document.querySelector('#cart-table tbody');
+    const totalEl = document.getElementById('total');
 
-    checkboxes.forEach(box => {
-      const quantityInput = box.closest('.menu-item').querySelector('input[type="number"]');
-      box.addEventListener('change', () => {
-        quantityInput.disabled = !box.checked;
-        updateOrder();
+    document.querySelectorAll('.menu-item button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const name = item.dataset.name;
+        const price = parseFloat(item.dataset.price);
+
+        if (!cart[name]) {
+          cart[name] = { price, qty: 1 };
+        } else {
+          cart[name].qty++;
+        }
+        updateCart();
       });
-      quantityInput.addEventListener('input', updateOrder);
     });
 
-    function updateOrder() {
+    function updateCart() {
+      cartTable.innerHTML = '';
       let total = 0;
-      summaryList.innerHTML = '';
-      checkboxes.forEach(box => {
-        if (box.checked) {
-          const quantity = parseInt(box.closest('.menu-item').querySelector('input[type="number"]').value) || 1;
-          const price = parseFloat(box.dataset.price);
-          const itemTotal = price * quantity;
-          total += itemTotal;
 
-          const li = document.createElement('li');
-          li.textContent = `${box.value} x${quantity} - $${itemTotal}`;
-          summaryList.appendChild(li);
-        }
-      });
-      totalPriceEl.textContent = total.toFixed(2);
-      confirmation.textContent = '';
+      for (let name in cart) {
+        const item = cart[name];
+        const subtotal = item.qty * item.price;
+        total += subtotal;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${name}</td>
+          <td><input type="number" value="${item.qty}" min="1" style="width:50px;" onchange="updateQty('${name}', this.value)"></td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>$${subtotal.toFixed(2)}</td>
+          <td><button onclick="removeItem('${name}')">❌</button></td>
+        `;
+        cartTable.appendChild(row);
+      }
+
+      totalEl.textContent = `$${total.toFixed(2)}`;
     }
 
-    document.getElementById('placeOrder').addEventListener('click', () => {
-      const items = summaryList.querySelectorAll('li');
-      if (items.length === 0) {
-        confirmation.style.color = 'red';
-        confirmation.textContent = 'Please select at least one item before placing your order.';
+    function updateQty(name, qty) {
+      cart[name].qty = parseInt(qty);
+      updateCart();
+    }
+
+    function removeItem(name) {
+      delete cart[name];
+      updateCart();
+    }
+
+    function submitOrder() {
+      if (Object.keys(cart).length === 0) {
+        alert('Your cart is empty!');
         return;
       }
-      confirmation.style.color = 'green';
-      confirmation.textContent = 'Thank you! Your order has been placed successfully.';
-    });
+      const order = Object.entries(cart)
+        .map(([name, item]) => `${item.qty} × ${name}`)
+        .join(', ');
+      alert(`Thank you! Your order has been placed:\n\n${order}`);
+    }
   </script>
 </body>
 </html>
