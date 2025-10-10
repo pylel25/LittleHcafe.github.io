@@ -43,6 +43,38 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
+    /* Contact Form Styling */
+    #contactForm input, 
+    #contactForm textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    #contactForm button {
+      background-color: hotpink;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    #contactForm button:hover {
+      background-color: deeppink;
+    }
+
+    #feedback {
+      margin-top: 15px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -70,6 +102,23 @@
       <li>Facebook - Little h Cafe</li>
       <li>Instagram - littlehcafe___</li>
     </ul>
+
+    <!-- 💬 Interactive Contact Form -->
+    <h3>Send us a message!</h3>
+    <form id="contactForm">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="feedback"></p>
   </section>
 
   <section id="located">
@@ -96,6 +145,28 @@
 
     document.getElementById("featuresBtn").addEventListener("click", () => {
       window.location.href = "https://pylel25.github.io/LittleHcafe.github.io/Page3.html";
+    });
+
+    // Interactive contact form functionality
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('feedback');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent page reload
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        feedback.textContent = '⚠️ Please fill out all fields.';
+        feedback.style.color = 'red';
+        return;
+      }
+
+      feedback.textContent = `✅ Thank you, ${name}! Your message has been sent.`;
+      feedback.style.color = 'green';
+      form.reset();
     });
   </script>
 </body>
